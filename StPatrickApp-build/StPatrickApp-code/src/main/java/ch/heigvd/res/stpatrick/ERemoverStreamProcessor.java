@@ -21,6 +21,12 @@ public class ERemoverStreamProcessor implements IStreamProcessor {
     public void process(Reader in, Writer out) throws IOException {
         BufferedReader br = new BufferedReader(in);
         BufferedWriter bw = new BufferedWriter(out);
+        String str;
+        while ((str = br.readLine()) != null) {
+            str = str.replace("E", "");
+            str = str.replace("e", "");
+            bw.write(str);
+        }
     
         bw.flush();
     }
